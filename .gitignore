@@ -1,2 +1,4 @@
-config/discord
+config/configstore
 config/BraveSoftware
+config/dconf
+config/discord
