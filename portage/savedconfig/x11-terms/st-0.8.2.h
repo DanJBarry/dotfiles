@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "SauceCodePro Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -88,31 +88,28 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	[0] = "#111111", /* black   */
+	[1] = "#aa4450", /* red     */
+	[2] = "#719611", /* green   */
+	[3] = "#ff9800", /* yellow  */
+	[4] = "#6688aa", /* blue    */
+	[5] = "#8f6f8f", /* magenta */
+	[6] = "#528b8b", /* cyan    */
+	[7] = "#d3d3d3", /* white   */
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	[8]  = "#181818", /* black   */
+	[9]  = "#ff6a6a", /* red     */
+	[10] = "#b1d631", /* green   */
+	[11] = "#87875f", /* yellow  */
+	[12] = "#90b0d1", /* blue    */
+	[13] = "#8181a6", /* magenta */
+	[14] = "#87ceeb", /* cyan    */
+	[15] = "#c1cdc1", /* white   */
 
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"black",
+	/* special colors */
+	[256] = "#222222", /* background */
+	[257] = "#c2c2b0", /* foreground */
 };
 
 
@@ -120,10 +117,18 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 258;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 256;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+unsigned int defaultitalic = 7;
+unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
