@@ -11,8 +11,8 @@ static const unsigned int gappov    = gap;       /* vert outer gap between windo
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=10" };
-static const char dmenufont[]       = "Source Code Pro:size=10";
+static const char *fonts[]          = { "SauceCodePro Nerd Font:size=10" };
+static const char dmenufont[]       = "SauceCodePro Nerd Font:size=10";
 static const char col_bg[]          = "#222222";
 static const char col_fg[]          = "#c2c2b0";
 static const char col_black[]       = "#181818";
