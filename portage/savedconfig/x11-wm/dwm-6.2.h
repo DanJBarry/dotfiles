@@ -11,17 +11,16 @@ static const unsigned int gappov    = gap;       /* vert outer gap between windo
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SauceCodePro Nerd Font Mono:size=14" };
+static const char *fonts[]          = { "SauceCodePro Nerd Font Mono:size=14:antialias=true:autohint=true", "SauceCodePro Nerd Font Mono:style=Bold:size=14:antialias=true:autohint=true" };
 static const char dmenufont[]       = "SauceCodePro Nerd Font Mono:size=14";
 static const char col_bg[]          = "#222222";
 static const char col_fg[]          = "#c2c2b0";
-static const char col_black[]       = "#181818";
 static const char col_dblue[]       = "#6688aa";
 static const char col_lblue[]       = "#90b0d1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_fg,    col_bg,    col_dblue },
-	[SchemeSel]  = { col_black, col_dblue, col_lblue },
+	[SchemeSel]  = { col_lblue,   col_bg,    col_lblue },
 };
 
 /* tagging */
@@ -61,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_dblue, "-sf", col_black, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_dblue, "-sf", col_bg, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", "new-session", "-A", "-s", "main", NULL };
 
 static Key keys[] = {
